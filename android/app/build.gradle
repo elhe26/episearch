@@ -24,6 +24,13 @@ if (flutterVersionName == null) {
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+apply plugin: 'com.google.firebase.appdistribution'
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
 
 android {
 
@@ -34,11 +41,21 @@ android {
             dimension "flavor-type"
             applicationId "com.episearch.clientes"
             resValue "string", "app_name", "EpiSearch"
+            firebaseAppDistribution {
+                serviceCredentialsFile="./episearch-prod-f446e81ebeaf.json"
+                releaseNotesFile="./release-notes.txt"
+                testers="erick.heredia@gmail.com"
+            }
         }
         development {
             dimension "flavor-type"
             applicationId "com.episearch.dev"
             resValue "string", "app_name", "EpiSearch Dev"
+            firebaseAppDistribution {
+                serviceCredentialsFile="./episearch-dev-9719dc1489a8.json"
+                releaseNotesFile="./release-notes-dev.txt"
+                testers="erick.heredia@gmail.com"
+            }
         }
     }
 
@@ -56,16 +73,38 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.episearch.clientes"
-        minSdkVersion 16
+        minSdkVersion 24
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
 
-    buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+    signingConfigs {  
+        file(rootProject.file('key.properties')).with { propFile ->  
+            if (propFile.canRead()) {  
+                release {  
+                    keyAlias keystoreProperties['keyAlias']  
+                    keyPassword keystoreProperties['keyPassword']  
+                    storeFile file(keystoreProperties['storeFile'])  
+                    storePassword keystoreProperties['storePassword']  
+                }
+            }  
+            else {  
+                print('not signed')  
+            }  
+        }  
+    }  
+
+    buildTypes {  
+        release {  
+            file(rootProject.file('key.properties')).with { propFile ->  
+                if (propFile.canRead()) {  
+                    signingConfig signingConfigs.release  
+                }  
+            }  
+        }
+
+        debug {
             signingConfig signingConfigs.debug
         }
     }
