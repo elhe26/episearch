@@ -1,0 +1,4 @@
+EpiSearch Dev
+
+08 Junio 2020
+- Version Inicial.
