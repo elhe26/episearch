@@ -1,0 +1,29 @@
+### datos API del coronavirus
+# Los datos son extraidos de Jonhs Hopkins CSSE
+
+### Datos Iniciales
+GET {{baseUrl}}
+
+### Sumarizacion datos
+GET {{baseUrl}}/summary
+
+### Paises
+GET {{countries}}
+
+### Dia 1 - todos los casos desde el primer dia
+GET {{dayOneCountry}}/dominican-republic
+
+### Dia 1 - todos los casos desde el primer dia por renglones: muertos, etc...
+GET {{dayOneCountry}}/dominican-republic/status/deaths
+
+### Dia 1 - todos los casos desde el primer dia por renglones: muertos, etc... que esten activos
+GET {{dayOneCountry}}/dominican-republic/status/deaths/live
+
+### Dia 1 - todos los casos desde el primer dia por renglones: muertos, etc...
+GET {{totalDayOneByCountryStatus}}/dominican-republic/status/deaths
+
+### Total por pais
+GET {{totalByCountry}}/dominican-republic
+
+### Por pais -  los estatus en vivo
+GET {{liveByCountry}}/dominican-republic/status/confirmed
