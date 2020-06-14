@@ -41,6 +41,7 @@ dependencies:
   http: ^0.12.1
   json_annotation: ^3.0.1
   json_serializable: ^3.3.0
+  device_preview: ^0.4.5
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -81,6 +82,15 @@ flavorizr:
       ios:
         bundleId: "com.episearch.dev"
 
+# Adding support for launcher icons
+flutter_icons:
+  ios: true
+  android: true
+  image_path_ios: "assets/launcher/icon_launcher.png"
+  image_path_android: "assets/launcher/icon_launcher.png"
+  adaptive_icon_background: "assets/launcher/background.png"
+  adaptive_icon_foreground: "assets/launcher/foreground.png"
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -91,9 +101,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - config/
+    - assets/images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
