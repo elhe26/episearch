@@ -43,7 +43,7 @@ Future<void> mainCommon(Flavor flavor) async {
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
-      builder: (context) => EpiSearchApp(),
+      builder: (context) => EpiSearchApp(primaryColor: primaryColor),
     ),
   );
 }
