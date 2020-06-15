@@ -26,4 +26,5 @@ GET {{totalDayOneByCountryStatus}}/dominican-republic/status/deaths
 GET {{totalByCountry}}/dominican-republic
 
 ### Por pais -  los estatus en vivo
-GET {{liveByCountry}}/dominican-republic/status/confirmed
+# GET {{liveByCountry}}/dominican-republic/status/confirmed
+
