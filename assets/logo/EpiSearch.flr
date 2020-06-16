@@ -4,8 +4,8 @@
 		{
 			"name": "Splash",
 			"translation": [
-				336.7713928222656,
-				159.4022979736328
+				296.05706787109375,
+				200.1165771484375
 			],
 			"width": 288,
 			"height": 512,
@@ -15,9 +15,9 @@
 			],
 			"clipContents": true,
 			"color": [
-				0.4928571283817291,
-				0.4928571283817291,
-				0.4928571283817291,
+				0.8928571343421936,
+				0.8928571343421936,
+				0.8928571343421936,
 				1
 			],
 			"nodes": [
@@ -2499,6 +2499,56 @@
 					"width": 91,
 					"height": 29,
 					"type": "ellipse"
+				},
+				{
+					"name": "logo",
+					"translation": [
+						142,
+						394
+					],
+					"rotation": 0,
+					"scale": [
+						1,
+						1
+					],
+					"opacity": 1,
+					"isCollapsed": false,
+					"clips": [],
+					"isVisible": true,
+					"blendMode": 3,
+					"drawOrder": 19,
+					"bones": [],
+					"atlas": 0,
+					"numVertices": 4,
+					"vertices": [
+						-71.5,
+						-19,
+						0.00390625,
+						0.015625,
+						71.5,
+						-19,
+						0.5625,
+						0.015625,
+						71.5,
+						19,
+						0.5625,
+						0.609375,
+						-71.5,
+						19,
+						0.00390625,
+						0.609375
+					],
+					"isDynamic": false,
+					"numTriangles": 2,
+					"triangles": [
+						3,
+						0,
+						1,
+						1,
+						2,
+						3
+					],
+					"type": "image"
 				}
 			],
 			"animations": [
@@ -2571,6 +2621,28 @@
 									}
 								]
 							]
+						},
+						{
+							"component": 71,
+							"opacity": [
+								[
+									{
+										"time": 0,
+										"interpolatorType": 1,
+										"value": 1
+									},
+									{
+										"time": 0.3333333333333333,
+										"interpolatorType": 1,
+										"value": 0.5
+									},
+									{
+										"time": 0.5166666666666667,
+										"interpolatorType": 1,
+										"value": 1
+									}
+								]
+							]
 						}
 					],
 					"animationStart": 0,
@@ -2580,5 +2652,11 @@
 			],
 			"type": "artboard"
 		}
-	]
+	],
+	"atlases": {
+		"isOOB": false,
+		"data": [
+			"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAABACAYAAAD1Xam+AAAFZElEQVR4nO2cwXXqOhCG6SAlpIR0kBIogRIY6XjhHR1QAiWkhJRAC5RAC/cu7iiRxyNZIvB4ge87x5tYSGNH83s0I3u1AgAAAAAAAAAAAAAAAAAAAAAAuCXjOL6JyPs4ji/3tuVRiTF+hhD+hBAO97YF7ow63EknxOIhImcR2dzCFhHZ5uMMw/BaabsJIXyIyDn/TYzxU0S2td8+MyLybv6f7/e2Ce5ICOGj1flzR7uFLSKyW5qcIvLeIVh7IokpCABMyMLBnuMmoaOIrNMTPcZ4tM5rJ2/LEWM83sLW3woCABOsAOgTtniM4/h2L1vtk1/D/U1m39YTNCb5NwgATLAOc297SjgTd1dqOwzDa7ouIoApCABMuKUADMPwKiJbEdnpcfFks/mBlrV9a7Si0UOycXdJlKPJ1OK1aqSy68lJGLuK924cxxd7DSKy9hKhNQEwfWxIpD4B1xCAtHbXYz2O40sI4VBIIJ5EZO31o0/uY0rgmTGsAPx4KaJO6SYUa3aaPopJydRHXt3wIpJ0bSJySmVQr08rAnqf9ws5kM/8XnkCMI7jW3bfZ4nUn95n+B9zDQHI+4gxHiuTqZpItE5uzq1tcu8nT6iSQPUkPLUU2VQ1qd1j67CVfr7Krz3l27xq4wjA1tpXGxcejJ4kYMnhSpM21eU1WTebZCKyzfupCYCen/URYzymELlVEDznT3YWxGv2FCxVJGrX2yIAufCk6EHv75cNGvJ7EcIpjV8as2R3/r/y+m25r/AL6S0DemFxYdLM1rt5KJwmXd6mQQDWDfadQgiH0hLBewLaNsMwvAazP8JZ01sHPHjX6wmBHW9JGJ32EwFTEfT2TOyseHgCYMfT3M3k+sgHPCgXCMAs++5EEcUMvSMC2+xcVQC0zdpzqsLxYZ3SOHZ1P4Nxgo/cBuv8lT5momXb9Dxtdd1fFNElHAFwbXf+T1QLHpEeAUhJqlof0rBLMHesGONn9vdFAVitvkLg2VZg77BJtx6xKzmuk5CsOqBdVtjzrWKiYy9GMJ2/dxOdtWoBPBA3SAJ+LrUPWQibO2irAFhSGSyEsC+sjdfa7u0aAtB7vUvXZWwtRk9eX72O2erYTruqXfBLuYcA5JPYZKgvEgBLmCf59tp/91ZiT6gQAHgYblEG7GzfvQRYwq6T0xia3JuE27WqR37k/ecC05Iht4LknO8RgI1pv7hXwfweAYBvri0AIdQ36XhOmM41VAE2rTVpM0aewMtfH76ovNWTINPlSfM+gCVHs8uYlgjE2I4AwDe3EADvTb7V6p8z2IRYPgFrAhCmO95m2f2cWqXBWR7UMvjvIrKzJTArYiJyKpXJgvO6tdOmy9FsnqOWCLT7IxAAmHCNtwEL+wDOoht09NjaiWufXjUBcOw8awifvw248drlYqE17rNpc1L7vvoxYf6ssmEEKdmzr13vFQVgVlr03oxM40v2cRUEACZc+D2A/U/7EOeLPzUB0K2vrfX/fJzZksGuo1tstX140UzrYfu6xNFC+1bmiaMjADAhXPBFIDuJbVJvaXJKYT/BUg5AX1ppEht9qhfX5tL4ZaGSrWrPy5I9KhL72nVd6mj2flWOPM/SJAA219CbbIRfwjW+Cehl9XWiHfKndgpTS7bU3gbM0b73Trh/Cv82BzW/vCLfG4pOl/aj9nyUrjXfWluISL7eBuzdcqv5iL2NRtIW4NqSbSmBmIRc3yjk02rg01sXB4AHAgEAeGIQAIAnBgEAeGIQAIAnRrJvAt7zs+EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/xF/AT3lFWIz+s4rAAAAAElFTkSuQmCC"
+		]
+	}
 }
