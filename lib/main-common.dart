@@ -20,7 +20,7 @@ Future<void> mainCommon(Flavor flavor) async {
   );
 
   // * Obteniendo data CI/CD
-  ConfigReader.initialize();
+  await ConfigReader.initialize();
 
   // * Obteniendo  Localizador de Dependencias
   configure();
