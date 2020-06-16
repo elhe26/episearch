@@ -3,19 +3,21 @@ import 'dart:convert';
 import 'package:injectable/injectable.dart';
 import 'package:http/http.dart' as http;
 
-import '../models/api_points.dart';
 import '../utils/config_reader.dart';
 import '../models/global.dart';
 import '../models/country.dart';
+import '../models/api_points.dart';
 
 @injectable
 class APIService {
-  APIPoints _apiPoints = ConfigReader.endpoints();
+  APIPoints _apiPoints = ConfigReader.endpoints;
   Global _global;
   List<Country> _countries;
 
   // * Getters
   Global get global => _global;
+
+  List<Country> get countries => _countries;
 
   // ! Functions
   // * Retorna la data relacionada al pais seleccionado
@@ -34,7 +36,11 @@ class APIService {
       final Map<String, dynamic> bodyData = json.decode(response.body);
       if (bodyData.isNotEmpty) {
         final Map<String, dynamic> globalData = bodyData["Global"];
-        final List<Map> countriesData = bodyData["Countries"];
+
+        // ? Realizando casts para leer contenido JSON
+        List<dynamic> cData = bodyData["Countries"];
+        final List<Map<String, dynamic>> countriesData =
+            List<Map<String, dynamic>>.from(cData);
 
         _global = Global.fromJson(globalData);
         _countries =
