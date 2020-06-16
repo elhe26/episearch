@@ -1,5 +1,8 @@
 EpiSearch Dev
 
+16 Junio 2020
+- Modificacion CI/CD.
+
 15 Junio 2020
 - Agregando Dashboard.
 
