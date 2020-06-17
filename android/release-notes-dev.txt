@@ -1,5 +1,4 @@
 EpiSearch Dev
 
 16 Junio 2020
-
 - Agregando vista "Acerca de".
