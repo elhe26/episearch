@@ -22,7 +22,7 @@ class SplashView extends StatelessWidget {
         startAnimation: "intro",
         loopAnimation: "intro",
         endAnimation: "intro",
-        backgroundColor: lightMonoGrey,
+        backgroundColor: whiteMonoLetter,
       ),
       viewModelBuilder: () => SplashViewModel(),
     );
