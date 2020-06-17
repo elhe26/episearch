@@ -21,3 +21,13 @@ const Color mediumMonoGrey =
 const Color darkMonoGrey = const Color.fromRGBO(112, 112, 112, 1.0); //  #707070
 const Color softShadow = const Color.fromRGBO(0, 0, 0, 0.15); // #000000
 const Color blackMonoLetter = const Color.fromRGBO(45, 43, 42, 1.0); //  #2D2B2A
+
+// * Brand Colors
+const Color linkedin = const Color.fromRGBO(0, 119, 181, 1.0);
+const Color instagram = const Color.fromRGBO(195, 42, 163, 1.0);
+const Color twitter = const Color.fromRGBO(29, 161, 242, 1.0);
+
+// * Gradients
+const Color lightPinkGrd =
+    const Color.fromRGBO(247, 189, 189, 0.4); //  #F7BDBD
+const Color softBlack = Color.fromRGBO(0, 0, 0, 0.5); // #000000

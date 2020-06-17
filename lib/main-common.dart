@@ -1,12 +1,13 @@
-import 'package:clientes/utils/config_reader.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as services;
 
+import 'app/app.dart';
 import 'app/locator.dart';
 import 'utils/flavors.dart';
-import 'app/app.dart';
+import 'utils/config_reader.dart';
+import 'ui/shared/setup_dialog_ui.dart';
 
 Future<void> mainCommon(Flavor flavor) async {
   // * Llamar esta funcion si main es asincrono
@@ -24,6 +25,9 @@ Future<void> mainCommon(Flavor flavor) async {
 
   // * Obteniendo  Localizador de Dependencias
   configure();
+
+  // * Custom Dialog
+  setupDialogUI();
 
   // * Declaracion de variables.
   Color primaryColor;
