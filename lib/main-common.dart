@@ -4,9 +4,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as services;
 
+import 'app/app.dart';
 import 'app/locator.dart';
 import 'utils/flavors.dart';
-import 'app/app.dart';
+import 'utils/config_reader.dart';
 
 Future<void> mainCommon(Flavor flavor) async {
   // * Llamar esta funcion si main es asincrono
