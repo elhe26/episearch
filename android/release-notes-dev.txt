@@ -1,7 +1,5 @@
 EpiSearch Dev
 
-15 Junio 2020
-- Agregando Dashboard.
+16 Junio 2020
 
-08 Junio 2020
-- Version Inicial.
+- Agregando vista "Acerca de".
