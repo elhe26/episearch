@@ -8,16 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:clientes/ui/views/splash/splash_view.dart';
-import 'package:clientes/ui/views/about/about_view.dart';
 import 'package:clientes/ui/views/home/home_view.dart';
 
 abstract class Routes {
   static const splashViewRoute = '/';
-  static const aboutViewRoute = '/about-view-route';
   static const homeViewRoute = '/home-view-route';
   static const all = {
     splashViewRoute,
-    aboutViewRoute,
     homeViewRoute,
   };
 }
@@ -42,18 +39,6 @@ class Router extends RouterBase {
         return PageRouteBuilder<dynamic>(
           pageBuilder: (context, animation, secondaryAnimation) =>
               SplashView(key: typedArgs.key),
-          settings: settings,
-          transitionsBuilder: TransitionsBuilders.slideRightWithFade,
-          transitionDuration: const Duration(milliseconds: 400),
-        );
-      case Routes.aboutViewRoute:
-        if (hasInvalidArgs<AboutViewArguments>(args)) {
-          return misTypedArgsRoute<AboutViewArguments>(args);
-        }
-        final typedArgs = args as AboutViewArguments ?? AboutViewArguments();
-        return PageRouteBuilder<dynamic>(
-          pageBuilder: (context, animation, secondaryAnimation) =>
-              AboutView(key: typedArgs.key),
           settings: settings,
           transitionsBuilder: TransitionsBuilders.slideRightWithFade,
           transitionDuration: const Duration(milliseconds: 400),
@@ -84,12 +69,6 @@ class Router extends RouterBase {
 class SplashViewArguments {
   final Key key;
   SplashViewArguments({this.key});
-}
-
-//AboutView arguments holder class
-class AboutViewArguments {
-  final Key key;
-  AboutViewArguments({this.key});
 }
 
 //HomeView arguments holder class
