@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import 'splash_viewmodel.dart';
-import '../../shared/app_colors.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({Key key}) : super(key: key);
@@ -12,7 +11,7 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<SplashViewModel>.nonReactive(
       builder: (context, model, child) => SplashScreen.callback(
-        name: model.logo,
+        name: model.isDarkTheme ? model.logoDark : model.logo,
         until: () {
           model.getAPIData();
           return Future.delayed(Duration(seconds: 5));
@@ -22,9 +21,10 @@ class SplashView extends StatelessWidget {
         startAnimation: "intro",
         loopAnimation: "intro",
         endAnimation: "intro",
-        backgroundColor: whiteMonoLetter,
+        backgroundColor: Theme.of(context).backgroundColor,
       ),
       viewModelBuilder: () => SplashViewModel(),
+      onModelReady: (model) => model.initialize(),
     );
   }
 }
