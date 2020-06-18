@@ -1,12 +1,12 @@
-import 'package:clientes/services/data_cache_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../app/locator.dart';
-import '../../../utils/about_text.dart' as about;
+import 'locator.dart';
+import '../services/data_cache_service.dart';
+import '../utils/about_text.dart' as about;
 
-class HomeViewModel extends BaseViewModel {
+class EpiSearchViewModel extends BaseViewModel {
   //  Services
   final _dialogService = locator<DialogService>();
   final _dataCacheService = locator<DataCacheService>();
@@ -33,6 +33,11 @@ class HomeViewModel extends BaseViewModel {
   }
 
   // * Business Logic
+  void initialize() async {
+    await _dataCacheService.getTheme();
+    notifyListeners();
+  }
+
   void aboutDialog() async {
     var response = await _dialogService.showCustomDialog(
       title: about.title,
