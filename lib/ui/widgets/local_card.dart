@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stacked/stacked.dart';
 
 import '../shared/app_colors.dart';
+import '../../app/app_viewmodel.dart';
 
-class LocalCard extends StatelessWidget {
+class LocalCard extends ViewModelWidget<EpiSearchViewModel> {
   const LocalCard({
     Key key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, EpiSearchViewModel model) {
     return Card(
+      color: Theme.of(context).cardColor,
+      elevation: 3,
+      borderOnForeground: false,
+      shadowColor: Theme.of(context).cardTheme.shadowColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+        side: BorderSide(style: BorderStyle.none),
+      ),
       child: Padding(
         padding: const EdgeInsets.only(
             top: 10.0, left: 10.0, right: 10.0, bottom: 20.0),
@@ -28,7 +38,7 @@ class LocalCard extends StatelessWidget {
                       child: Text(
                         "Republica Dominicana",
                         style: GoogleFonts.quicksand(
-                          color: darkBlue,
+                          color: Theme.of(context).accentColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
                         ),
@@ -41,7 +51,7 @@ class LocalCard extends StatelessWidget {
                   child: Text(
                     "Cambiar",
                     style: GoogleFonts.quicksand(
-                      color: darkBlue,
+                      color: Theme.of(context).accentColor,
                       fontSize: 10,
                       fontWeight: FontWeight.w700,
                     ),
@@ -56,7 +66,7 @@ class LocalCard extends StatelessWidget {
                 Text(
                   "Casos Totales",
                   style: GoogleFonts.quicksand(
-                    color: mediumMonoGrey,
+                    color: Theme.of(context).primaryColor,
                     fontSize: 10,
                     fontWeight: FontWeight.w700,
                   ),
@@ -64,7 +74,7 @@ class LocalCard extends StatelessWidget {
                 Text(
                   "Muertes",
                   style: GoogleFonts.quicksand(
-                    color: mediumMonoGrey,
+                    color: Theme.of(context).primaryColor,
                     fontSize: 10,
                     fontWeight: FontWeight.w700,
                   ),
@@ -72,7 +82,7 @@ class LocalCard extends StatelessWidget {
                 Text(
                   "Recuperados",
                   style: GoogleFonts.quicksand(
-                    color: mediumMonoGrey,
+                    color: Theme.of(context).primaryColor,
                     fontSize: 10,
                     fontWeight: FontWeight.w700,
                   ),
@@ -86,7 +96,7 @@ class LocalCard extends StatelessWidget {
                 Text(
                   "2,000,000",
                   style: GoogleFonts.quicksand(
-                    color: darkSoftBlue,
+                    color: model.isDarkTheme ? darkBlueDarkTheme : darkSoftBlue,
                     fontSize: 16.0,
                     fontWeight: FontWeight.w700,
                   ),
@@ -94,7 +104,7 @@ class LocalCard extends StatelessWidget {
                 Text(
                   "500,000",
                   style: GoogleFonts.quicksand(
-                    color: lightRed,
+                    color: model.isDarkTheme ? lightOrangeDarkTheme : lightRed,
                     fontSize: 16.0,
                     fontWeight: FontWeight.w700,
                   ),
@@ -102,7 +112,7 @@ class LocalCard extends StatelessWidget {
                 Text(
                   "1,000,000",
                   style: GoogleFonts.quicksand(
-                    color: lightGreen,
+                    color: model.isDarkTheme ? lightGreenDarkTheme : lightGreen,
                     fontSize: 16.0,
                     fontWeight: FontWeight.w700,
                   ),
@@ -118,7 +128,7 @@ class LocalCard extends StatelessWidget {
                     Text(
                       "Nuevos: ",
                       style: GoogleFonts.quicksand(
-                        color: mediumMonoGrey,
+                        color: Theme.of(context).primaryColor,
                         fontSize: 9.0,
                         fontWeight: FontWeight.w700,
                       ),
@@ -126,7 +136,9 @@ class LocalCard extends StatelessWidget {
                     Text(
                       "+15,000",
                       style: GoogleFonts.quicksand(
-                        color: darkSoftBlue,
+                        color: model.isDarkTheme
+                            ? darkBlueDarkTheme
+                            : darkSoftBlue,
                         fontSize: 9.0,
                         fontWeight: FontWeight.w700,
                       ),
@@ -138,7 +150,7 @@ class LocalCard extends StatelessWidget {
                     Text(
                       "Nuevos: ",
                       style: GoogleFonts.quicksand(
-                        color: mediumMonoGrey,
+                        color: Theme.of(context).primaryColor,
                         fontSize: 9.0,
                         fontWeight: FontWeight.w700,
                       ),
@@ -146,7 +158,8 @@ class LocalCard extends StatelessWidget {
                     Text(
                       "+15,000",
                       style: GoogleFonts.quicksand(
-                        color: lightRed,
+                        color:
+                            model.isDarkTheme ? lightOrangeDarkTheme : lightRed,
                         fontSize: 9.0,
                         fontWeight: FontWeight.w700,
                       ),
@@ -158,7 +171,7 @@ class LocalCard extends StatelessWidget {
                     Text(
                       "Nuevos: ",
                       style: GoogleFonts.quicksand(
-                        color: mediumMonoGrey,
+                        color: Theme.of(context).primaryColor,
                         fontSize: 9.0,
                         fontWeight: FontWeight.w700,
                       ),
@@ -166,7 +179,9 @@ class LocalCard extends StatelessWidget {
                     Text(
                       "+15,000",
                       style: GoogleFonts.quicksand(
-                        color: lightGreen,
+                        color: model.isDarkTheme
+                            ? lightGreenDarkTheme
+                            : lightGreen,
                         fontSize: 9.0,
                         fontWeight: FontWeight.w700,
                       ),
@@ -181,7 +196,7 @@ class LocalCard extends StatelessWidget {
                 Text(
                   "Ultima actualizacion: ",
                   style: GoogleFonts.quicksand(
-                    color: mediumMonoGrey,
+                    color: Theme.of(context).primaryColor,
                     fontSize: 9.0,
                     fontWeight: FontWeight.w700,
                   ),
@@ -189,7 +204,7 @@ class LocalCard extends StatelessWidget {
                 Text(
                   "25 Abril, 11:06 PM",
                   style: GoogleFonts.quicksand(
-                    color: mediumMonoGrey,
+                    color: Theme.of(context).primaryColor,
                     fontSize: 9.0,
                     fontWeight: FontWeight.w900,
                   ),
@@ -198,12 +213,6 @@ class LocalCard extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      elevation: 3,
-      borderOnForeground: false,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-        side: BorderSide(style: BorderStyle.none),
       ),
     );
   }
