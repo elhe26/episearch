@@ -11,6 +11,15 @@ class TestCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 3,
+      semanticContainer: false,
+      borderOnForeground: false,
+      shadowColor: Theme.of(context).cardTheme.shadowColor,
+      color: lightPink,
+      shape: RoundedRectangleBorder(
+        side: BorderSide(style: BorderStyle.none),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -40,14 +49,6 @@ class TestCard extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      elevation: 3,
-      semanticContainer: false,
-      borderOnForeground: false,
-      color: lightPink,
-      shape: RoundedRectangleBorder(
-        side: BorderSide(style: BorderStyle.none),
-        borderRadius: BorderRadius.circular(10.0),
       ),
     );
   }
