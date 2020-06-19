@@ -75,7 +75,7 @@ class GlobalCard extends ViewModelWidget<EpiSearchViewModel> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  "2,000,000",
+                  "${model.totalConfirmed}",
                   style: GoogleFonts.quicksand(
                     color: model.isDarkTheme ? darkBlueDarkTheme : darkSoftBlue,
                     fontSize: 16.0,
@@ -83,7 +83,7 @@ class GlobalCard extends ViewModelWidget<EpiSearchViewModel> {
                   ),
                 ),
                 Text(
-                  "500,000",
+                  "${model.totalDeaths}",
                   style: GoogleFonts.quicksand(
                     color: model.isDarkTheme ? lightOrangeDarkTheme : lightRed,
                     fontSize: 16.0,
@@ -91,7 +91,7 @@ class GlobalCard extends ViewModelWidget<EpiSearchViewModel> {
                   ),
                 ),
                 Text(
-                  "1,000,000",
+                  "${model.totalRecovered}",
                   style: GoogleFonts.quicksand(
                     color: model.isDarkTheme ? lightGreenDarkTheme : lightGreen,
                     fontSize: 16.0,
@@ -115,7 +115,7 @@ class GlobalCard extends ViewModelWidget<EpiSearchViewModel> {
                       ),
                     ),
                     Text(
-                      "+15,000",
+                      "+${model.newConfirmed}",
                       style: GoogleFonts.quicksand(
                         color: model.isDarkTheme
                             ? darkBlueDarkTheme
@@ -137,7 +137,7 @@ class GlobalCard extends ViewModelWidget<EpiSearchViewModel> {
                       ),
                     ),
                     Text(
-                      "+15,000",
+                      "+${model.newDeaths}",
                       style: GoogleFonts.quicksand(
                         color:
                             model.isDarkTheme ? lightOrangeDarkTheme : lightRed,
@@ -158,7 +158,7 @@ class GlobalCard extends ViewModelWidget<EpiSearchViewModel> {
                       ),
                     ),
                     Text(
-                      "+15,000",
+                      "+${model.newRecovered}",
                       style: GoogleFonts.quicksand(
                         color: model.isDarkTheme
                             ? lightGreenDarkTheme
@@ -183,7 +183,7 @@ class GlobalCard extends ViewModelWidget<EpiSearchViewModel> {
                   ),
                 ),
                 Text(
-                  "25 Abril, 11:06 PM",
+                  "${model.dateFormatted}",
                   style: GoogleFonts.quicksand(
                     color: Theme.of(context).primaryColor,
                     fontSize: 9.0,
