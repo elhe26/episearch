@@ -6,7 +6,6 @@ import 'package:stacked_services/stacked_services.dart';
 import 'app_viewmodel.dart';
 import 'locator.dart';
 import 'routes.gr.dart';
-import '../utils/app_theme.dart';
 
 class EpiSearchApp extends StatelessWidget {
   const EpiSearchApp({Key key}) : super(key: key);
@@ -21,12 +20,11 @@ class EpiSearchApp extends StatelessWidget {
         locale: DevicePreview.of(context).locale,
         initialRoute: Routes.splashViewRoute,
         onGenerateRoute: Router().onGenerateRoute,
-        theme: AppTheme.themeData(context, isDarkTheme: model.isDarkTheme),
+        theme: model.theme,
         darkTheme: ThemeData.dark(),
       ),
       viewModelBuilder: () => EpiSearchViewModel(),
       onModelReady: (model) => model.initialize(),
-      
     );
   }
 }

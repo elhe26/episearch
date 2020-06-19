@@ -18,8 +18,9 @@ class DataCacheService {
     _cacheDarkTheme = value;
   }
 
-  Future<void> getTheme() async {
+  Future getTheme() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     _cacheDarkTheme = preferences.getBool(THEME_STATUS) ?? false;
+    return _cacheDarkTheme;
   }
 }
