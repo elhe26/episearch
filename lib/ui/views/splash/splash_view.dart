@@ -13,7 +13,6 @@ class SplashView extends StatelessWidget {
       builder: (context, model, child) => SplashScreen.callback(
         name: model.isDarkTheme ? model.logoDark : model.logo,
         until: () {
-          model.getAPIData();
           return Future.delayed(Duration(seconds: 5));
         },
         onSuccess: (_) => model.navigateToHome(),
@@ -24,7 +23,6 @@ class SplashView extends StatelessWidget {
         backgroundColor: Theme.of(context).backgroundColor,
       ),
       viewModelBuilder: () => SplashViewModel(),
-      onModelReady: (model) => model.initialize(),
     );
   }
 }
