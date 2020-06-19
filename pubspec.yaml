@@ -36,7 +36,6 @@ dependencies:
   # ! Crashlytics is having issues.
   # firebase_crashlytics: ^0.1.3+3
   # * UX
-  smart_flare: ^0.2.9+1
   google_fonts: ^1.1.0
   flare_splash_screen: ^3.0.1
   avatar_glow: ^1.2.0
