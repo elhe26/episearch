@@ -9,9 +9,9 @@ class AppTheme {
       // Local & Global Card - Titles
       accentColor: isDarkTheme ? whiteMonoLetter : darkBlue,
       // General color - screens
-      backgroundColor: isDarkTheme ? softShadow : whiteMonoLetter,
-      canvasColor: isDarkTheme ? softShadow : whiteMonoLetter,
-      cardColor: isDarkTheme ? softShadow : whiteMonoLetter,
+      backgroundColor: isDarkTheme ? darkColor : whiteMonoLetter,
+      canvasColor: isDarkTheme ? darkColor : whiteMonoLetter,
+      cardColor: isDarkTheme ? darkColor : whiteMonoLetter,
       // App Brightness
       brightness: isDarkTheme ? Brightness.dark : Brightness.light,
       // Textos
@@ -25,7 +25,7 @@ class AppTheme {
         color: isDarkTheme ? softShadow.withOpacity(0.0) : whiteMonoLetter,
       ),
       cardTheme: CardTheme(
-        shadowColor: isDarkTheme ? softShadow : Colors.black,
+        shadowColor: isDarkTheme ? darkColor : Colors.black,
       ),
     );
   }

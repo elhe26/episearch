@@ -18,41 +18,45 @@ class HomeView extends ViewModelWidget<EpiSearchViewModel> {
   Widget build(BuildContext context, EpiSearchViewModel model) {
     return Scaffold(
       appBar: HomeBar(),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              SizedBox(height: smallFieldHeight),
-              GestureDetector(
-                child: TestCard(),
-                onTap: () {},
-              ),
-              SizedBox(height: smallFieldHeight),
-              GestureDetector(
-                child: GlobalCard(),
-                onTap: () {},
-              ),
-              SizedBox(height: smallFieldHeight),
-              GestureDetector(
-                child: LocalCard(),
-                onTap: () {},
-              ),
-              SizedBox(height: smallFieldHeight),
-              Text(
-                "Notas Importantes",
-                style: GoogleFonts.quicksand(
-                  color: model.isDarkTheme ? whiteMonoLetter : blackMonoLetter,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w700,
+      body: RefreshIndicator(
+        onRefresh: model.getSummaryData,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SizedBox(height: smallFieldHeight),
+                GestureDetector(
+                  child: TestCard(),
+                  onTap: () {},
                 ),
-              ),
-              SizedBox(height: inputFieldBottomMargin),
-              NotesCarousel(),
-            ],
+                SizedBox(height: smallFieldHeight),
+                GestureDetector(
+                  child: GlobalCard(),
+                  onTap: () {},
+                ),
+                SizedBox(height: smallFieldHeight),
+                GestureDetector(
+                  child: LocalCard(),
+                  onTap: () {},
+                ),
+                SizedBox(height: smallFieldHeight),
+                Text(
+                  "Notas Importantes",
+                  style: GoogleFonts.quicksand(
+                    color:
+                        model.isDarkTheme ? whiteMonoLetter : blackMonoLetter,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                SizedBox(height: inputFieldBottomMargin),
+                NotesCarousel(),
+              ],
+            ),
           ),
         ),
       ),

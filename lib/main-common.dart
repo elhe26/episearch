@@ -2,6 +2,8 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as services;
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 
 import 'app/app.dart';
 import 'app/locator.dart';
@@ -28,6 +30,10 @@ Future<void> mainCommon(Flavor flavor) async {
 
   // * Custom Dialog
   setupDialogUI();
+
+  // * Locale
+  Intl.defaultLocale = "es_US";
+  await initializeDateFormatting();
 
   // * Declaracion de variables.
 

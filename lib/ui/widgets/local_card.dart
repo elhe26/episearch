@@ -94,7 +94,7 @@ class LocalCard extends ViewModelWidget<EpiSearchViewModel> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  "2,000,000",
+                  "${model.localTotalConfirmed}",
                   style: GoogleFonts.quicksand(
                     color: model.isDarkTheme ? darkBlueDarkTheme : darkSoftBlue,
                     fontSize: 16.0,
@@ -102,7 +102,7 @@ class LocalCard extends ViewModelWidget<EpiSearchViewModel> {
                   ),
                 ),
                 Text(
-                  "500,000",
+                  "${model.localTotalDeaths}",
                   style: GoogleFonts.quicksand(
                     color: model.isDarkTheme ? lightOrangeDarkTheme : lightRed,
                     fontSize: 16.0,
@@ -110,7 +110,7 @@ class LocalCard extends ViewModelWidget<EpiSearchViewModel> {
                   ),
                 ),
                 Text(
-                  "1,000,000",
+                  "${model.localTotalRecovered}",
                   style: GoogleFonts.quicksand(
                     color: model.isDarkTheme ? lightGreenDarkTheme : lightGreen,
                     fontSize: 16.0,
@@ -134,7 +134,7 @@ class LocalCard extends ViewModelWidget<EpiSearchViewModel> {
                       ),
                     ),
                     Text(
-                      "+15,000",
+                      "+${model.localNewConfirmed}",
                       style: GoogleFonts.quicksand(
                         color: model.isDarkTheme
                             ? darkBlueDarkTheme
@@ -156,7 +156,7 @@ class LocalCard extends ViewModelWidget<EpiSearchViewModel> {
                       ),
                     ),
                     Text(
-                      "+15,000",
+                      "+${model.localNewDeaths}",
                       style: GoogleFonts.quicksand(
                         color:
                             model.isDarkTheme ? lightOrangeDarkTheme : lightRed,
@@ -177,7 +177,7 @@ class LocalCard extends ViewModelWidget<EpiSearchViewModel> {
                       ),
                     ),
                     Text(
-                      "+15,000",
+                      "+${model.localNewRecovered}",
                       style: GoogleFonts.quicksand(
                         color: model.isDarkTheme
                             ? lightGreenDarkTheme
@@ -202,7 +202,7 @@ class LocalCard extends ViewModelWidget<EpiSearchViewModel> {
                   ),
                 ),
                 Text(
-                  "25 Abril, 11:06 PM",
+                  "${model.localDateFormatted}",
                   style: GoogleFonts.quicksand(
                     color: Theme.of(context).primaryColor,
                     fontSize: 9.0,

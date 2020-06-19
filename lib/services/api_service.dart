@@ -8,7 +8,7 @@ import '../models/global.dart';
 import '../models/country.dart';
 import '../models/api_points.dart';
 
-@injectable
+@lazySingleton
 class APIService {
   APIPoints _apiPoints = ConfigReader.endpoints;
   Global _global;
@@ -21,35 +21,43 @@ class APIService {
 
   // ! Functions
   // * Retorna la data relacionada al pais seleccionado
-  Country countryData({String countryName}) {
+  Country countryData({String countryNameSlug}) {
     final Country country = _countries
-        .where((countryMap) => countryMap.country == countryName)
+        .where((countryMap) => countryMap.slug == countryNameSlug)
         .first;
     return country;
   }
 
   // * Sumarizacion datos
   Future summary() async {
-    final response = await http.get("${_apiPoints.baseUrl}/summary");
+    try {
+      final response = await http.get("${_apiPoints.baseUrl}/summary");
 
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> bodyData = json.decode(response.body);
-      if (bodyData.isNotEmpty) {
-        final Map<String, dynamic> globalData = bodyData["Global"];
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> bodyData = json.decode(response.body);
+        if (bodyData.isNotEmpty) {
+          final Map<String, dynamic> globalData = bodyData["Global"];
+          final dateDate = bodyData["Date"];
+          final value = DateTime.tryParse(dateDate);
+          globalData["Date"] = value;
 
-        // ? Realizando casts para leer contenido JSON
-        List<dynamic> cData = bodyData["Countries"];
-        final List<Map<String, dynamic>> countriesData =
-            List<Map<String, dynamic>>.from(cData);
+          // ? Realizando casts para leer contenido JSON
+          List<dynamic> cData = bodyData["Countries"];
+          final List<Map<String, dynamic>> countriesData =
+              List<Map<String, dynamic>>.from(cData);
 
-        _global = Global.fromJson(globalData);
-        _countries =
-            countriesData.map((country) => Country.fromJson(country)).toList();
-        return true;
+          _global = Global.fromJson(globalData);
+          _countries = countriesData
+              .map((country) => Country.fromJson(country))
+              .toList();
+          return true;
+        }
+        return "Error servicio. Intente mas tarde.";
       }
-      return "Error servicio. Intente mas tarde.";
-    }
 
-    return response;
+      return response;
+    } catch (_) {
+      return "Revise la conexion de internet.";
+    }
   }
 }
