@@ -5,6 +5,7 @@ class Global {
   final int totalDeaths;
   final int newRecovered;
   final int totalRecovered;
+  final DateTime date;
 
   Global({
     this.newConfirmed,
@@ -13,6 +14,7 @@ class Global {
     this.totalDeaths,
     this.newRecovered,
     this.totalRecovered,
+    this.date,
   });
 
   factory Global.fromJson(Map<String, dynamic> json) {
@@ -23,6 +25,7 @@ class Global {
       totalDeaths: json["TotalDeaths"] as int,
       newRecovered: json["NewRecovered"] as int,
       totalRecovered: json["TotalRecovered"] as int,
+      date: json["Date"] as DateTime,
     );
   }
 }
