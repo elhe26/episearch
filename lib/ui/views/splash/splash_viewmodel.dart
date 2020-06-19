@@ -29,6 +29,7 @@ class SplashViewModel extends BaseViewModel {
 
   void initialize() async {
     await _dataCacheService.getTheme();
+    await getAPIData();
     notifyListeners();
   }
 
