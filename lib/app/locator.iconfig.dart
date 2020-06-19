@@ -8,6 +8,7 @@ import 'package:clientes/services/api_service.dart';
 import 'package:clientes/services/data_cache_service.dart';
 import 'package:clientes/services/third_party_services_module.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:clientes/services/theme_manager.dart';
 import 'package:get_it/get_it.dart';
 
 void $initGetIt(GetIt g, {String environment}) {
@@ -20,6 +21,7 @@ void $initGetIt(GetIt g, {String environment}) {
       () => thirdPartyServicesModule.navigationService);
   g.registerLazySingleton<SnackbarService>(
       () => thirdPartyServicesModule.snackbarService);
+  g.registerLazySingleton<ThemeManager>(() => ThemeManager());
 }
 
 class _$ThirdPartyServicesModule extends ThirdPartyServicesModule {
