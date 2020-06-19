@@ -1,25 +1,32 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import 'app_viewmodel.dart';
 import 'locator.dart';
 import 'routes.gr.dart';
+import '../utils/app_theme.dart';
 
 class EpiSearchApp extends StatelessWidget {
-  final Color primaryColor;
-
-  const EpiSearchApp({Key key, this.primaryColor}) : super(key: key);
+  const EpiSearchApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "EpiSearch",
-      navigatorKey: locator<NavigationService>().navigatorKey,
-      builder: DevicePreview.appBuilder,
-      locale: DevicePreview.of(context).locale,
-      initialRoute: Routes.splashViewRoute,
-      onGenerateRoute: Router().onGenerateRoute,
-      theme: ThemeData(primaryColor: primaryColor),
+    return ViewModelBuilder<EpiSearchViewModel>.reactive(
+      builder: (context, model, child) => MaterialApp(
+        title: "EpiSearch",
+        navigatorKey: locator<NavigationService>().navigatorKey,
+        builder: DevicePreview.appBuilder,
+        locale: DevicePreview.of(context).locale,
+        initialRoute: Routes.splashViewRoute,
+        onGenerateRoute: Router().onGenerateRoute,
+        theme: AppTheme.themeData(context, isDarkTheme: model.isDarkTheme),
+        darkTheme: ThemeData.dark(),
+      ),
+      viewModelBuilder: () => EpiSearchViewModel(),
+      onModelReady: (model) => model.initialize(),
+      
     );
   }
 }
