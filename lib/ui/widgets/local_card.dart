@@ -1,3 +1,4 @@
+import 'package:clientes/ui/widgets/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stacked/stacked.dart';
@@ -31,12 +32,18 @@ class LocalCard extends ViewModelWidget<EpiSearchViewModel> {
               children: <Widget>[
                 Row(
                   children: <Widget>[
-                    CircleAvatar(),
+                    CircleAvatar(
+                      backgroundImage: AssetImage(
+                        "icons/flags/png/${model.flagCode}.png",
+                        package: "country_icons",
+                      ),
+                      radius: 16,
+                    ),
                     SizedBox(width: 5.0),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "Republica Dominicana",
+                        "${model.countryName}",
                         style: GoogleFonts.quicksand(
                           color: Theme.of(context).accentColor,
                           fontSize: 14,
@@ -46,17 +53,7 @@ class LocalCard extends ViewModelWidget<EpiSearchViewModel> {
                     ),
                   ],
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Cambiar",
-                    style: GoogleFonts.quicksand(
-                      color: Theme.of(context).accentColor,
-                      fontSize: 10,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
+                CountryPickerButton(),
               ],
             ),
             SizedBox(height: 20.0),
