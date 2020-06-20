@@ -1,7 +1,5 @@
-import 'dart:convert';
-
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:http/http.dart' as http;
 
 import '../utils/config_reader.dart';
 import '../models/global.dart';
@@ -13,6 +11,12 @@ class APIService {
   APIPoints _apiPoints = ConfigReader.endpoints;
   Global _global;
   List<Country> _countries;
+  BaseOptions _options = BaseOptions(
+    connectTimeout: 10000,
+    receiveTimeout: 10000,
+  );
+
+  // * Variable definition
 
   // * Getters
   Global get global => _global;
@@ -30,11 +34,15 @@ class APIService {
 
   // * Sumarizacion datos
   Future summary() async {
+    Dio dio = Dio(_options);
     try {
-      final response = await http.get("${_apiPoints.baseUrl}/summary");
+      final response = await dio.get("${_apiPoints.baseUrl}/summary");
+      print(response.data.runtimeType);
+      // final r = await http.get("${_apiPoints.baseUrl}/summary");
 
       if (response.statusCode == 200) {
-        final Map<String, dynamic> bodyData = json.decode(response.body);
+        // final Map<String, dynamic> bodyData = json.decode(response.data);
+        final Map<String, dynamic> bodyData = response.data;
         if (bodyData.isNotEmpty) {
           final Map<String, dynamic> globalData = bodyData["Global"];
           final dateDate = bodyData["Date"];
@@ -52,12 +60,16 @@ class APIService {
               .toList();
           return true;
         }
-        return "Error servicio. Intente mas tarde.";
+        return "Error de servicio. Intente mas tarde.";
       }
-
       return response;
-    } catch (_) {
-      return "Revise la conexion de internet.";
+    } on DioError catch (e) {
+      if (e.type == DioErrorType.CONNECT_TIMEOUT ||
+          e.type == DioErrorType.CONNECT_TIMEOUT) {
+        return "Revise la conexion de internet.";
+      } else {
+        return "Problemas con el servidor. Intente mas tarde.";
+      }
     }
   }
 }

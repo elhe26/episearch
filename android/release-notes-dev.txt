@@ -1,4 +1,5 @@
 EpiSearch Dev
 
-18 Junio 2020
-- Agregando soporte modo oscuro.
+19 Junio 2020
+- Modificando icono de lanzamiento.
+- Manejo de errores.

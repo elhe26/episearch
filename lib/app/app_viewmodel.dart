@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -5,20 +6,23 @@ import 'package:url_launcher/url_launcher.dart';
 import 'locator.dart';
 import '../services/data_cache_service.dart';
 import '../services/api_service.dart';
+import '../services/theme_manager.dart';
 import '../models/country.dart';
 import '../utils/last_updated_status_formatter.dart';
 import '../utils/about_text.dart' as about;
 
 class EpiSearchViewModel extends BaseViewModel {
-  //  Services
+  // * Services
   final _dialogService = locator<DialogService>();
   final _dataCacheService = locator<DataCacheService>();
   final _apiService = locator<APIService>();
+  final _themeManager = locator<ThemeManager>();
 
-  // Variables
+  // * Variables
 
-  // Getters
+  // * Getters
   bool get isDarkTheme => _dataCacheService.cacheDarkTheme();
+  ThemeData get theme => _themeManager.themeData;
 
   // * Global data
   String get totalConfirmed => StatusFormatter.numberFormatter(
@@ -62,7 +66,7 @@ class EpiSearchViewModel extends BaseViewModel {
         number: countryData.newDeaths,
       );
   String get localNewRecovered => StatusFormatter.numberFormatter(
-        number: countryData.totalRecovered,
+        number: countryData.newRecovered,
       );
 
   String get localDateFormatted => StatusFormatter.lastUpdatedStatusFromText(
@@ -83,7 +87,9 @@ class EpiSearchViewModel extends BaseViewModel {
 
   // * Business Logic
   void initialize() async {
-    await _dataCacheService.getTheme();
+    final response = await _dataCacheService.getTheme();
+    _themeManager.setThemeData(isDarkTheme: response);
+    await getSummaryData();
     notifyListeners();
   }
 
@@ -116,6 +122,7 @@ class EpiSearchViewModel extends BaseViewModel {
 
   void setDarkTheme({bool value}) async {
     await _dataCacheService.setTheme(value: value);
+    _themeManager.setThemeData(isDarkTheme: value);
     notifyListeners();
   }
 
