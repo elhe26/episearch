@@ -19,10 +19,16 @@ class EpiSearchViewModel extends BaseViewModel {
   final _themeManager = locator<ThemeManager>();
 
   // * Variables
+  String _country = "Dominican Republic";
 
   // * Getters
+  String get flagCode => countryData.countryCode.toLowerCase();
+  String get countryName => _country;
   bool get isDarkTheme => _dataCacheService.cacheDarkTheme();
   ThemeData get theme => _themeManager.themeData;
+  ThemeData get systemDarkMode => _themeManager.systemDarkMode();
+  List<String> get countries =>
+      _apiService.countries.map((country) => country.country).toList();
 
   // * Global data
   String get totalConfirmed => StatusFormatter.numberFormatter(
@@ -48,7 +54,7 @@ class EpiSearchViewModel extends BaseViewModel {
 
   // * Local Data
   Country get countryData => _apiService.countries
-      .where((country) => country.slug == "dominican-republic")
+      .where((country) => country.country == _country)
       .first;
   String get localTotalConfirmed => StatusFormatter.numberFormatter(
         number: countryData.totalConfirmed,
@@ -73,7 +79,14 @@ class EpiSearchViewModel extends BaseViewModel {
         date: countryData.date,
       );
 
-  // Setters
+  // * Setters
+  set countryName(String value) {
+    _country = _apiService.countries
+        .where((country) => country.country == value)
+        .first
+        .country;
+    notifyListeners();
+  }
 
   // Helpers
   Future _launchURL({String url, String name}) async {
