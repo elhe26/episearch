@@ -62,4 +62,32 @@ class ThemeManager {
       ),
     );
   }
+
+  ThemeData systemDarkMode() {
+    return ThemeData(
+      // General letters.
+      primaryColor: lightMonoGrey,
+      // Local & Global Card - Titles
+      accentColor: whiteMonoLetter,
+      // General color - screens
+      backgroundColor: darkColor,
+      canvasColor: darkColor,
+      cardColor: darkColor,
+      // App Brightness
+      brightness: Brightness.dark,
+      // Textos
+      textSelectionColor: lightBlue,
+      // AppBar general color - Icons, background
+      appBarTheme: AppBarTheme(
+        elevation: 0.0,
+        actionsIconTheme: IconThemeData(
+          color: whiteMonoLetter,
+        ),
+        color: softShadow.withOpacity(0.0),
+      ),
+      cardTheme: CardTheme(
+        shadowColor: darkColor,
+      ),
+    );
+  }
 }

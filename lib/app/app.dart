@@ -21,7 +21,7 @@ class EpiSearchApp extends StatelessWidget {
         initialRoute: Routes.splashViewRoute,
         onGenerateRoute: Router().onGenerateRoute,
         theme: model.theme,
-        darkTheme: ThemeData.dark(),
+        darkTheme: model.systemDarkMode,
       ),
       viewModelBuilder: () => EpiSearchViewModel(),
       onModelReady: (model) => model.initialize(),
