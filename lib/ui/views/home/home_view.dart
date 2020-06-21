@@ -36,12 +36,26 @@ class HomeView extends ViewModelWidget<EpiSearchViewModel> {
                 SizedBox(height: smallFieldHeight),
                 GestureDetector(
                   child: GlobalCard(),
-                  onTap: () {},
+                  onTap: () async {
+                    if (model.canVibrate) {
+                      model.vibration();
+                      await model.getSummaryData();
+                    } else {
+                      await model.getSummaryData();
+                    }
+                  },
                 ),
                 SizedBox(height: smallFieldHeight),
                 GestureDetector(
                   child: LocalCard(),
-                  onTap: () {},
+                  onTap: () async {
+                    if (model.canVibrate) {
+                      model.vibration();
+                      await model.getSummaryData();
+                    } else {
+                      await model.getSummaryData();
+                    }
+                  },
                 ),
                 SizedBox(height: smallFieldHeight),
                 Text(

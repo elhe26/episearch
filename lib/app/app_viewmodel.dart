@@ -9,6 +9,7 @@ import '../services/analytics_service.dart';
 import '../services/data_cache_service.dart';
 import '../services/theme_manager.dart';
 import '../services/device_info_service.dart';
+import '../services/vibration_service.dart';
 import '../models/country.dart';
 import '../utils/last_updated_status_formatter.dart';
 import '../utils/about_text.dart' as about;
@@ -21,11 +22,13 @@ class EpiSearchViewModel extends BaseViewModel {
   final _themeManager = locator<ThemeManager>();
   final _analytics = locator<AnalyticsService>();
   final _deviceInfo = locator<DeviceInfoService>();
+  final _vibration = locator<VibrationService>();
 
   // * Variables
   String _country = "Dominican Republic";
 
   // * Getters
+  bool get canVibrate => _vibration.canVibrate;
   String get flagCode => countryData?.countryCode?.toLowerCase();
   String get countryName => _country;
   bool get isDarkTheme => _dataCacheService.cacheDarkTheme();
@@ -106,6 +109,7 @@ class EpiSearchViewModel extends BaseViewModel {
   void initialize() async {
     final response = _dataCacheService.cacheDarkTheme();
     _themeManager.setThemeData(isDarkTheme: response);
+    _vibration.initialize();
     notifyListeners();
   }
 
@@ -133,7 +137,7 @@ class EpiSearchViewModel extends BaseViewModel {
           barrierDismissible: true,
         );
       }
-    } else {}
+    }
   }
 
   void setDarkTheme({bool value}) async {
@@ -176,4 +180,11 @@ class EpiSearchViewModel extends BaseViewModel {
       );
     }
   }
+
+  void vibration() {
+    _vibration.vibrate();
+    notifyListeners();
+  }
+
+  void dummyData() {}
 }
