@@ -28,4 +28,14 @@ class Global {
       date: json["Date"] as DateTime,
     );
   }
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        "NewConfirmed": newConfirmed,
+        "TotalConfirmed": totalConfirmed,
+        "NewDeaths": newDeaths,
+        "TotalDeaths": totalDeaths,
+        "NewRecovered": newRecovered,
+        "TotalRecovered": totalRecovered,
+        "Date": date,
+      };
 }

@@ -37,4 +37,16 @@ class Country {
       date: json["Date"] as String,
     );
   }
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        "Country": country,
+        "CountryCode": countryCode,
+        "Slug": slug,
+        "NewConfirmed": newConfirmed,
+        "TotalConfirmed": totalConfirmed,
+        "NewDeaths": newDeaths,
+        "TotalDeaths": totalDeaths,
+        "NewRecovered": newRecovered,
+        "TotalRecovered": totalRecovered,
+        "Date": date,
+      };
 }
