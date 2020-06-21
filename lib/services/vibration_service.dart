@@ -8,7 +8,9 @@ class VibrationService {
   bool get canVibrate => _canVibrate;
 
   void vibrate() {
-    Vibrate.vibrate();
+    // FeedbackType _type = FeedbackType.light;
+    // Vibrate.vibrate();
+    Vibrate.feedback(FeedbackType.light);
   }
 
   initialize() async {
