@@ -1,4 +1,4 @@
 EpiSearch
 
-08 Junio 2020
-- Version Inicial.
+21 Junio 2020
+- Lanzamiento.

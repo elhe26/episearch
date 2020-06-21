@@ -1,5 +1,4 @@
 EpiSearch Dev
 
-19 Junio 2020
-- Modificando icono de lanzamiento.
-- Manejo de errores.
+21 Junio 2020
+- Version Lanzamiento.
