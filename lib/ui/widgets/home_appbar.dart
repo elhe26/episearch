@@ -31,10 +31,12 @@ class HomeBar extends ViewModelWidget<EpiSearchViewModel>
             !model.isDarkTheme ? Icons.wb_sunny : FontAwesomeIcons.moon,
             color: Theme.of(context).appBarTheme.actionsIconTheme.color,
           ),
-          onPressed: () {
+          onPressed: () async {
             if (model.isDarkTheme) {
+              model.canVibrate ? model.vibration() : model.dummyData();
               model.setDarkTheme(value: false);
             } else {
+              model.canVibrate ? model.vibration() : model.dummyData();
               model.setDarkTheme(value: true);
             }
           },
