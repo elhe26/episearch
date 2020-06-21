@@ -7,8 +7,10 @@ import 'package:intl/intl.dart';
 
 import 'app/app.dart';
 import 'app/locator.dart';
+import 'utils/device_data.dart';
 import 'utils/flavors.dart';
 import 'utils/config_reader.dart';
+import 'ui/shared/cache.dart';
 import 'ui/shared/setup_dialog_ui.dart';
 
 Future<void> mainCommon(Flavor flavor) async {
@@ -35,7 +37,11 @@ Future<void> mainCommon(Flavor flavor) async {
   Intl.defaultLocale = "es_US";
   await initializeDateFormatting();
 
-  // * Declaracion de variables.
+  // * Inicializando Cache
+  await cacheInitialize();
+
+  // * Inicializando informacion de dispositivo
+  await deviceInfoInit();
 
   // * Configuracion flavors.
 

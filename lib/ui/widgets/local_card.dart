@@ -33,10 +33,12 @@ class LocalCard extends ViewModelWidget<EpiSearchViewModel> {
                 Row(
                   children: <Widget>[
                     CircleAvatar(
-                      backgroundImage: AssetImage(
-                        "icons/flags/png/${model.flagCode}.png",
-                        package: "country_icons",
-                      ),
+                      backgroundImage: model.flagCode != null
+                          ? AssetImage(
+                              "icons/flags/png/${model.flagCode}.png",
+                              package: "country_icons",
+                            )
+                          : null,
                       radius: 16,
                     ),
                     SizedBox(width: 5.0),

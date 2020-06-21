@@ -16,13 +16,16 @@ class SplashView extends StatelessWidget {
           return Future.delayed(Duration(seconds: 5));
         },
         onSuccess: (_) => model.navigateToHome(),
-        onError: (error, stacktrace) {},
+        onError: (error, stacktrace) {
+          model.navigateToHome();
+        },
         startAnimation: "intro",
         loopAnimation: "intro",
         endAnimation: "intro",
         backgroundColor: Theme.of(context).backgroundColor,
       ),
       viewModelBuilder: () => SplashViewModel(),
+      onModelReady: (model) => model.initialize(),
     );
   }
 }

@@ -6,6 +6,7 @@ import 'package:stacked_services/stacked_services.dart';
 import 'app_viewmodel.dart';
 import 'locator.dart';
 import 'routes.gr.dart';
+import '../services/analytics_service.dart';
 
 class EpiSearchApp extends StatelessWidget {
   const EpiSearchApp({Key key}) : super(key: key);
@@ -16,12 +17,14 @@ class EpiSearchApp extends StatelessWidget {
       builder: (context, model, child) => MaterialApp(
         title: "EpiSearch",
         navigatorKey: locator<NavigationService>().navigatorKey,
+        navigatorObservers: [
+          locator<AnalyticsService>().getAnalyticsObserver(),
+        ],
         builder: DevicePreview.appBuilder,
         locale: DevicePreview.of(context).locale,
         initialRoute: Routes.splashViewRoute,
         onGenerateRoute: Router().onGenerateRoute,
         theme: model.theme,
-        darkTheme: model.systemDarkMode,
       ),
       viewModelBuilder: () => EpiSearchViewModel(),
       onModelReady: (model) => model.initialize(),
