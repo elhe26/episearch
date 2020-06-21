@@ -23,9 +23,7 @@ class HomeBar extends ViewModelWidget<EpiSearchViewModel>
         icon: Image.asset(
           "assets/logo/logo-icon.png",
         ),
-        onPressed: () {
-          print("Logo pressed!");
-        },
+        onPressed: null,
       ),
       actions: <Widget>[
         IconButton(

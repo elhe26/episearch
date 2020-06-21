@@ -39,7 +39,7 @@ class TestCard extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                '''But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will''',
+                '''Acercate a un centro para realizar las pruebas de deteccion del coronarivus. Practica el distanciamiento social y cuerentena si tienes sospechas.''',
                 style: GoogleFonts.quicksand(
                   color: whiteMonoLetter,
                   fontSize: 12,
