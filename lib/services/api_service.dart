@@ -19,15 +19,19 @@ class APIService {
   // * Variable definition
 
   // * Getters
+  // ignore: unnecessary_getters_setters
   Global get global => _global;
 
+  // ignore: unnecessary_getters_setters
   List<Country> get countries => _countries;
 
   // * Setters
+  // ignore: unnecessary_getters_setters
   set global(Global value) {
     _global = value;
   }
 
+  // ignore: unnecessary_getters_setters
   set countries(List<Country> value) {
     _countries = value;
   }
