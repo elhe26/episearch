@@ -10,7 +10,7 @@ class VibrationService {
   void vibrate() {
     // FeedbackType _type = FeedbackType.light;
     // Vibrate.vibrate();
-    Vibrate.feedback(FeedbackType.light);
+    Vibrate.feedback(FeedbackType.medium);
   }
 
   initialize() async {
