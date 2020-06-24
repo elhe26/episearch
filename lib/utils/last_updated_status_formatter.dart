@@ -3,8 +3,8 @@ import 'package:intl/intl.dart';
 class StatusFormatter {
   static String lastUpdatedStatusText({DateTime lastUpdated}) {
     if (lastUpdated != null) {
-      final formatter = DateFormat.yMMMEd();
-      final formatted = formatter.format(lastUpdated);
+      final formatter = DateFormat.yMEd().add_jms();
+      final formatted = formatter.format(lastUpdated.toLocal());
       return "$formatted";
     }
     return "-";
@@ -22,8 +22,8 @@ class StatusFormatter {
   static String lastUpdatedStatusFromText({String date}) {
     if (date != null) {
       final dateString = DateTime.tryParse(date);
-      final formatter = DateFormat.yMMMEd();
-      final formatted = formatter.format(dateString);
+      final formatter = DateFormat.yMEd().add_jms();
+      final formatted = formatter.format(dateString.toLocal());
       return "$formatted";
     }
     return "-";

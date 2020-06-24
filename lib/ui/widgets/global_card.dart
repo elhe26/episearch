@@ -175,7 +175,7 @@ class GlobalCard extends ViewModelWidget<EpiSearchViewModel> {
             Row(
               children: <Widget>[
                 Text(
-                  "Ultima actualizacion: ",
+                  "Última actualización: ",
                   style: GoogleFonts.quicksand(
                     color: Theme.of(context).primaryColor,
                     fontSize: 9.0,
