@@ -39,7 +39,7 @@ class TestCard extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                '''Acercate a un centro para realizar las pruebas de deteccion del coronarivus. Practica el distanciamiento social y cuerentena si tienes sospechas.''',
+                '''Acercate a un centro para realizar las pruebas de detección del coronarivus. Practica el distanciamiento social y permanece en cuarentena si tienes sospechas.''',
                 style: GoogleFonts.quicksand(
                   color: whiteMonoLetter,
                   fontSize: 12,

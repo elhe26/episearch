@@ -71,7 +71,7 @@ class DeviceInfoService {
       }
     } on PlatformException {
       deviceData = <String, dynamic>{
-        'Error:': 'Falllo en conseguir la version de la plataforma'
+        'Error:': 'Fallo en conseguir la version de la plataforma'
       };
     }
 

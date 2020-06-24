@@ -62,7 +62,7 @@ class NotesCarousel extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
-                      "Usa \nla mascara",
+                      "Usa \nmascarilla",
                       style: GoogleFonts.quicksand(
                         color: whiteMonoLetter,
                         fontSize: 14.0,
@@ -112,4 +112,3 @@ class NotesCarousel extends StatelessWidget {
     );
   }
 }
-
