@@ -1,7 +1,7 @@
 const String title = "Acerca de";
 
 const String description =
-    "Esta app fue disenada para visualizar el comportamiento del coronavirus.\nEl objetivo de la app es de aportar un granito de arena y evitar informaciones falsas.\nLas informaciones provienen de fuentes oficiales tales omo la OMS.";
+    "Esta app fue disenada para visualizar el comportamiento del coronavirus.\nEl objetivo de la app es de aportar un granito de arena y evitar informaciones falsas.\nLas informaciones provienen de fuentes oficiales tales como la OMS.";
 
 const String imageUrl = "assets/avatars/Grey-Avatar.png";
 
